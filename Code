@@ -1,0 +1,19 @@
+import random
+import string
+passwordPool = string.printable 
+print("Hello, thank you for using our program to generate a password ")
+while True:
+    try:
+        passwordLength = int(input(
+            "Please enter the length of the password that you want to generate: \n"))  
+        if  7 < passwordLength <17: # making sure that the password length is between the correct range
+            password = "".join(random.sample((random.sample(passwordPool[:10], (passwordLength //4)))+(random.sample(passwordPool[10:36], (passwordLength //4)))+(random.sample(passwordPool[36:62], (passwordLength //4)))+random.sample(passwordPool[62:87], (passwordLength //4+ (passwordLength%4))),passwordLength))
+            
+            print(f"Congratulations! The generated password is \n{password}\n")
+               
+        else:
+            print(
+                "We are so sorry!, but we only accept digits that is between (8) and (16)\n ")
+            
+    except ValueError:
+        print("Please enter only numbers\n")
