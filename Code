@@ -1,19 +1,29 @@
 import random
 import string
+
+# Set password pool to all printable characters
 passwordPool = string.printable 
+
 print("Hello, thank you for using our program to generate a password ")
+
 while True:
     try:
-        passwordLength = int(input(
-            "Please enter the length of the password that you want to generate: \n"))  
-        if  7 < passwordLength <17: # making sure that the password length is between the correct range
-            password = "".join(random.sample((random.sample(passwordPool[:10], (passwordLength //4)))+(random.sample(passwordPool[10:36], (passwordLength //4)))+(random.sample(passwordPool[36:62], (passwordLength //4)))+random.sample(passwordPool[62:87], (passwordLength //4+ (passwordLength%4))),passwordLength))
+        # Ask user for desired password length
+        passwordLength = int(input("Please enter the length of the password that you want to generate: \n"))  
+
+        # Check that password length is between 8 and 16 characters
+        if  7 < passwordLength <17:
+            # Divide password length by 4 to determine how many characters from each section of the password pool to include
+            # Use random.sample to select random characters from each section of the password pool
+            # Concatenate the selected characters into a single string
+            # Join the selected characters into a final password string
+            password = "".join(random.sample((random.sample(passwordPool[:10], (passwordLength //4))) + (random.sample(passwordPool[10:36], (passwordLength //4))) + (random.sample(passwordPool[36:62], (passwordLength //4))) + random.sample(passwordPool[62:87], (passwordLength //4+ (passwordLength%4))), passwordLength))
             
             print(f"Congratulations! The generated password is \n{password}\n")
-               
         else:
-            print(
-                "We are so sorry!, but we only accept digits that is between (8) and (16)\n ")
+            # If password length is not between 8 and 16, print error message
+            print("We are so sorry!, but we only accept digits that is between (8) and (16)\n ")
             
     except ValueError:
+        # If user enters a non-integer value, print error message
         print("Please enter only numbers\n")
