@@ -3,6 +3,9 @@
 The Random Password Generator is a Python program that generates a random password that meets four constraints: it must include at least one uppercase letter, one lowercase letter, one number, and one symbol. This ensures that the generated password is secure and difficult to guess.
 
 The program was developed using Python version 3.0 and Jupiter Notebook. The program uses the Random and String modules in Python. An infinite loop is used to keep the program running until the user is satisfied with the generated password. The Try and Except statement is used to prevent the program from crashing if the user enters the wrong input.
+
+ The pseudocode and algorithm are provided, and the project includes a reflection on the learning experience, including the importance of pseudocode, flowcharts, and clean code.
+ 
 Algorithm
 
     Begin
@@ -41,3 +44,5 @@ BEGIN
         CATCH:
             DISPLAY 'Please enter only numeric values.'
 END
+
+
